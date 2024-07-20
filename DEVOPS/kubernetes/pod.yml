@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    test1: test2
+    test3: test4
+spec:
+  containers:
+  - name: my-container2
+    image: nginx:latest
+    env:
+    - name: test1
+      value: test2
+    - name: test3
+      value: test4   
+    ports:
+    - containerPort: 80
+  - name: my-container1
+    image: nginx:latest
+  
+
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: my-pod
+#   labels:
+#     app: my-app
+#     environment: test
+# spec:
+#   containers:
+#   - name: my-container
+#     image: nginx:latest
+#     env:
+#     - name: test1
+#       value: test2
+#     - name: test3
+#       value: test4   
+#     ports:
+#     - containerPort: 80
+
+
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: my-pod
+# spec:
+#   containers:
+#   - name: my-container
+#     image: nginx:latest
+#     ports:
+#     - containerPort: 80

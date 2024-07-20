@@ -1,0 +1,43 @@
+<html>
+    Current date and time is<span id="txt"></span>
+    <head>
+        <script>
+             console.log("test")
+            var date= new Date();
+            console.log(date)
+            document.getElementById("txt").innerHTML=date;
+            document.write("testingggg........")
+    document.writeln("<br/>navigator.cookieEnabled: "+navigator.appName);  
+    document.writeln("<br/>screen.width: "+screen.width);  
+document.writeln("<br/>screen.height: "+screen.height);  
+document.writeln("<br/>screen.availWidth: "+screen.availWidth);  
+document.writeln("<br/>screen.availHeight: "+screen.availHeight);  
+document.writeln("<br/>screen.colorDepth: "+screen.colorDepth);  
+document.writeln("<br/>screen.pixelDepth: "+screen.pixelDepth);  
+        </script>
+        
+        <script type="text/javascript" src="message.js">
+           
+        </script>
+    </head>
+    <body>
+    <form name="myForm">  
+    <input type="password" value="" name="userPass" onkeyup="validate()">  
+    Strength:<span id="mylocation">no strength</span>  
+    </form>  
+
+        <p>THis is testing javascript</p>
+        <form>
+            <input type="text" id="number"/>
+            <input type="button" onClick="getCube()" value="get cube"/>
+        </form>
+        
+        <form name="form1">
+            This is a form<input type="text" name="name1"/>
+            <input type="button" onclick="printName()" value="print Name"/>
+        </form>
+        <form>
+            <input type="button" value="click me bro" onclick="msg()"/>
+        </form>
+    </body>
+</html>

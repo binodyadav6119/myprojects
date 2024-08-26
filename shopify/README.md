@@ -57,7 +57,7 @@ docker.elastic.co/elasticsearch/elasticsearch:8.14.2
    ```bash
    curl --location 'https://6a2e45-42.myshopify.com/admin/api/2023-07/webhooks.json' \
    --header 'Content-Type: application/json' \
-   --header 'X-Shopify-Access-Token: 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' \
+   --header 'X-Shopify-Access-Token: <token>' \
    --data '{
      "webhook": {
        "topic": "orders/create",
@@ -75,7 +75,7 @@ docker.elastic.co/elasticsearch/elasticsearch:8.14.2
    ```bash
    curl --location 'https://6a2e45-42.myshopify.com/admin/api/2023-07/webhooks.json' \
    --header 'Content-Type: application/json' \
-   --header 'X-Shopify-Access-Token: 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' \
+   --header 'X-Shopify-Access-Token: <token>' \
    --data '{
    "webhook": {
    "topic": "fulfillments/create",

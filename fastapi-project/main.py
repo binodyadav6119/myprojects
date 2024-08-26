@@ -17,44 +17,10 @@ from server import database
 from server.schemas import user
 
 
-# DATABASE_URL = "postgresql://avnadmin:AVNS_HmxRJkpLOIDUVvoBSrV@binod-pg-binodmnnit2017-b27e.l.aivencloud.com:24037/defaultdb?sslmode=require"
 
-# engine = create_engine(DATABASE_URL)
-# SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-# Base = declarative_base()
 
 app = FastAPI()
-# @app.post("/test/",response_model=UserRead)
-# def get()->Any:
-#     return ""
 
-# # Dependency
-# def get_db():
-#     db = SessionLocal()
-#     try:
-#         yield db
-#     finally:
-#         db.close()
-
-# Models
-
-
-# Schemas
-# class UserCreate(BaseModel):
-#     username: str
-#     password: str
-
-# class UserRead(BaseModel):
-#     id: int
-#     username: str
-
-#     class Config:
-#         orm_mode = True
-
-# Create tables
-# database.Base.metadata.create_all(bind=database.engine)
-
-# # Security
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 SECRET_KEY = "mysecret"
 ALGORITHM = "HS256"

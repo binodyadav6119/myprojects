@@ -3,7 +3,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"  # Example with SQLite
-# DATABASE_URL = "postgresql://avnadmin:AVNS_HmxRJkpLOIDUVvoBSrV@binod-pg-binodmnnit2017-b27e.l.aivencloud.com:24037/defaultdb?sslmode=require"
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

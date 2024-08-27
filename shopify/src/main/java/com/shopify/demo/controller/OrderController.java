@@ -1,42 +1,5 @@
 package com.shopify.demo.controller;
 
-//import com.shopify.demo.indexes.Order;
-//import com.shopify.demo.service.OrderService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//import reactor.core.publisher.Flux;
-//import reactor.core.publisher.Mono;
-//
-//@RestController
-//@RequestMapping("/orders")
-//public class OrderController {
-//
-//    @Autowired
-//    private OrderService orderService;
-//
-//    @PostMapping
-//    public Mono<Order> createOrder(@RequestBody Order order) {
-//        return orderService.saveOrder(order);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Mono<Order> getOrder(@PathVariable String id) {
-//        return orderService.getOrderById(id);
-//    }
-//
-//    @GetMapping
-//    public Flux<Order> getAllOrders() {
-//        return orderService.getAllOrders();
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public Mono<Void> deleteOrder(@PathVariable String id) {
-//        return orderService.deleteOrderById(id);
-//    }
-//}
-
-
-
 import com.shopify.demo.indexes.Order;
 import com.shopify.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;

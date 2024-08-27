@@ -85,3 +85,12 @@ docker.elastic.co/elasticsearch/elasticsearch:8.14.2
    }'
 
   ```
+  
+## Url for api docs
+http://localhost:8085/v3/api-docs
+
+## Url for swagger
+http://localhost:8085/swagger-ui/index.html
+![](/home/binod/Pictures/Screenshot from 2024-08-27 13-36-11.png)
+
+![](/home/binod/Pictures/Screenshot from 2024-08-27 13-36-22.png)

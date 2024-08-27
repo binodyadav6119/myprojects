@@ -42,8 +42,26 @@ public class Fulfillment {
         private String variant_inventory_management;
         private Object destination;
         private String admin_graphql_api_id;
+        private Boolean notify_customer;
+        private Object tracking_info;
         // Getters and setters for all fields
 
+
+    public Boolean getNotify_customer() {
+        return notify_customer;
+    }
+
+    public void setNotify_customer(Boolean notify_customer) {
+        this.notify_customer = notify_customer;
+    }
+
+    public Object getTracking_info() {
+        return tracking_info;
+    }
+
+    public void setTracking_info(Object tracking_info) {
+        this.tracking_info = tracking_info;
+    }
 
     public String getAdmin_graphql_api_id() {
         return admin_graphql_api_id;

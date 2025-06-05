@@ -1,6 +1,7 @@
 package com.deals.deals.controller;
 
 
+import com.deals.deals.learn.Test;
 import com.deals.deals.model.Deals;
 import com.deals.deals.service.DealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,16 @@ public class DealController {
 
     @Autowired
     private DealService dealService;
+
+    @Autowired
+    Test test;
+
+    @GetMapping("/test")
+    public String getTest()
+    {
+        test.getName("binod");
+        return "testing first app in mac";
+    }
 
     @PostMapping("/createDeal")
     public ResponseEntity<Deals> createDeal(@RequestBody Deals deal)

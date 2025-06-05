@@ -14,6 +14,8 @@ public class Main {
         System.out.println(s2.age);
         System.out.println(s1.age);
 
+        System.out.println("name of thread is:"+Thread.currentThread().getName());
+
 //        Item item = new Item();
 //        Producer producer = new Producer(item);
 //        Consumer consumer= new Consumer(item);
@@ -30,6 +32,7 @@ public class Main {
 
         List<String>streamList=list.stream().flatMap(List::stream).filter(s->s.startsWith("b")).map(String::toUpperCase).distinct().sorted()
                 .peek(s->intter.add(s)).collect(Collectors.toList());
+
         System.out.println(intter);
 
         streamList.forEach(System.out::println);

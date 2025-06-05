@@ -1,6 +1,8 @@
 package com.twitter.Twitter;
 
 
+import com.twitter.Twitter.kafka.AvroProducer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 import org.springframework.web.socket.client.WebSocketClient;
@@ -13,6 +15,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 @Component
 public class BinanceWebsocketClient {
+    @Autowired
+    AvroProducer avroProducer;
 
     private final String BINANCE_WEBSOCKET_URL = "wss://stream.binance.com:9443/ws/btcusdt@trade";
     private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
@@ -44,7 +48,8 @@ public class BinanceWebsocketClient {
         @Override
         public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) {
             String payload = message.getPayload().toString();
-            System.out.println("Received: " + payload);
+//            System.out.println("Received: " + payload);
+            avroProducer.sendMessage("avro-topic",payload);
 
             // Store the message in the queue
             messageQueue.offer(payload);

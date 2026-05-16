@@ -1,0 +1,67 @@
+@startuml
+
+interface SudokuValidator {
+    + validate(board: SudokuBoard): boolean
+}
+
+class RowValidator {
+    + validate(board: SudokuBoard): boolean
+    - isValid(values: int[]): boolean
+}
+
+class ColumnValidator {
+    + validate(board: SudokuBoard): boolean
+    - isValid(values: int[]): boolean
+}
+
+class SquareValidator {
+    + validate(board: SudokuBoard): boolean
+    - isValid(values: int[]): boolean
+}
+
+class CompositeValidator {
+    - validators: List<SudokuValidator>
+    + validate(board: SudokuBoard): boolean
+}
+
+class SudokuBoard {
+    - board: Cell[][]
+    + getValue(row, col): int
+    + getRow(row): int[]
+    + getColumn(col): int[]
+    + getSquare(squareIndex): int[]
+}
+
+class Cell {
+    - value: int
+    + getValue(): int
+    + isEmpty(): boolean
+}
+
+class SudokuFactory {
+    + createValidator(): CompositeValidator
+}
+
+class SudokuPrinter {
+    + print(board: SudokuBoard): void
+}
+
+class PuzzleData
+
+class Main
+
+SudokuValidator <|.. RowValidator
+SudokuValidator <|.. ColumnValidator
+SudokuValidator <|.. SquareValidator
+SudokuValidator <|.. CompositeValidator
+
+CompositeValidator o-- SudokuValidator
+
+SudokuBoard *-- Cell
+
+SudokuFactory --> CompositeValidator
+SudokuPrinter --> SudokuBoard
+Main --> SudokuFactory
+Main --> SudokuBoard
+
+@enduml

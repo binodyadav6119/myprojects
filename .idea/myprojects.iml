@@ -5,9 +5,11 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/compositedesignpattern/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/strategydesignpattern" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lowleveldesign/cache-design/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lowleveldesign/sudoku" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lowleveldesign/sudoku/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lowleveldesign/terminal-lld" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lowleveldesign/terminal-lld/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/lowleveldesign/cache-design/src" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

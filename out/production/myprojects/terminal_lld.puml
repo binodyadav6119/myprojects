@@ -1,0 +1,59 @@
+@startuml
+
+interface Command {
+    +execute(context: ShellContext): CommandResult
+}
+
+class Terminal {
+    -parser: CommandParser
+    -executor: CommandExecutor
+    -context: ShellContext
+    +start()
+}
+
+class CommandParser {
+    +parse(input: String): ParsedCommand
+}
+
+class ParsedCommand {
+    -commandName: String
+    -arguments: List<String>
+}
+
+class ShellContext {
+    -currentDirectory: Path
+    -environmentVariables: Map
+}
+
+class CommandExecutor {
+    +execute(parsedCommand, context)
+}
+
+class CommandFactory {
+    +createCommand(parsedCommand): Command
+}
+
+class CommandResult {
+    -exitCode: int
+    -output: String
+    -error: String
+}
+
+class PwdCommand
+class CdCommand
+class EchoCommand
+class ExternalCommand
+
+Command <|.. PwdCommand
+Command <|.. CdCommand
+Command <|.. EchoCommand
+Command <|.. ExternalCommand
+
+Terminal --> CommandParser
+Terminal --> CommandExecutor
+Terminal --> ShellContext
+
+CommandExecutor --> CommandFactory
+CommandFactory --> Command
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+
+class Game
+class Board
+class Player
+class Dice
+class Jump
+class Snake
+class Ladder
+class Inventory
+interface WildCard
+class SkipSnakeCard
+class DoubleDiceCard
+
+Jump <|-- Snake
+Jump <|-- Ladder
+
+WildCard <|.. SkipSnakeCard
+WildCard <|.. DoubleDiceCard
+
+Player --> Inventory
+Inventory --> WildCard
+
+Game --> Board
+Game --> Player
+Game --> Dice
+
+Board --> Jump
+
+@enduml

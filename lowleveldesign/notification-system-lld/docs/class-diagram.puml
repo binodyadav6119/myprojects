@@ -1,0 +1,50 @@
+@startuml
+
+interface NotificationChannel {
+    +send(notification): boolean
+}
+
+interface RetryStrategy {
+    +getRetryCount(): int
+}
+
+class Notification {
+    -message: String
+    -recipient: String
+    -type: NotificationType
+    -channel: String
+}
+
+enum NotificationType {
+    TRANSACTIONAL
+    PROMOTIONAL
+    CRITICAL
+}
+
+class EmailChannel
+class SmsChannel
+class PushChannel
+
+class NotificationDispatcher {
+    -channelRegistry: Map
+    +registerChannel()
+    +dispatch()
+}
+
+class NotificationChannelFactory
+
+class HighPriorityRetryStrategy
+class NoRetryStrategy
+
+NotificationChannel <|.. EmailChannel
+NotificationChannel <|.. SmsChannel
+NotificationChannel <|.. PushChannel
+
+RetryStrategy <|.. HighPriorityRetryStrategy
+RetryStrategy <|.. NoRetryStrategy
+
+Notification --> RetryStrategy
+NotificationDispatcher --> NotificationChannel
+NotificationChannelFactory --> NotificationChannel
+
+@enduml

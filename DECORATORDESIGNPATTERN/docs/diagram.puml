@@ -1,0 +1,46 @@
+@startuml
+
+title Decorator Design Pattern
+
+interface BasePizza {
+    +cost() : int
+}
+
+class Margherita {
+    +cost() : int
+}
+
+class VegDelight {
+    +cost() : int
+}
+
+abstract class ToppingDecorator {
+    #BasePizza pizza
+    +ToppingDecorator(BasePizza)
+    +cost() : int
+}
+
+class ExtraCheese {
+    +cost() : int
+}
+
+class Mushroom {
+    +cost() : int
+}
+
+class Jalapeno {
+    +cost() : int
+}
+
+BasePizza <|.. Margherita
+BasePizza <|.. VegDelight
+
+BasePizza <|.. ToppingDecorator
+
+ToppingDecorator o-- BasePizza
+
+ToppingDecorator <|-- ExtraCheese
+ToppingDecorator <|-- Mushroom
+ToppingDecorator <|-- Jalapeno
+
+@enduml

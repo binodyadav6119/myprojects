@@ -1,0 +1,45 @@
+@startuml
+
+title Strategy Design Pattern - Class Diagram
+
+interface DriveStrategy {
+    +drive()
+}
+
+class NormalDriveStrategy {
+    +drive()
+}
+
+class SportsDriveStrategy {
+    +drive()
+}
+
+class OffRoadDriveStrategy {
+    +drive()
+}
+
+abstract class Vehicle {
+    -DriveStrategy driveStrategy
+    +Vehicle(DriveStrategy)
+    +drive()
+}
+
+class PassengerVehicle
+class SportsVehicle
+class OffRoadVehicle
+
+DriveStrategy <|.. NormalDriveStrategy
+DriveStrategy <|.. SportsDriveStrategy
+DriveStrategy <|.. OffRoadDriveStrategy
+
+Vehicle o-- DriveStrategy
+
+Vehicle <|-- PassengerVehicle
+Vehicle <|-- SportsVehicle
+Vehicle <|-- OffRoadVehicle
+
+PassengerVehicle --> NormalDriveStrategy
+SportsVehicle --> SportsDriveStrategy
+OffRoadVehicle --> OffRoadDriveStrategy
+
+@enduml

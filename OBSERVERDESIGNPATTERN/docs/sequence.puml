@@ -1,0 +1,30 @@
+@startuml
+
+actor User
+
+participant Main
+participant IphoneObservableImpl
+participant EmailAlertObserverImpl
+participant MobileAlertObserverImpl
+
+User -> Main : Run Application
+
+Main -> IphoneObservableImpl : create observable
+
+Main -> EmailAlertObserverImpl : create observer
+Main -> MobileAlertObserverImpl : create observer
+
+Main -> IphoneObservableImpl : add(observer1)
+Main -> IphoneObservableImpl : add(observer2)
+
+Main -> IphoneObservableImpl : setStockCount(10)
+
+IphoneObservableImpl -> IphoneObservableImpl : notifySubscribers()
+
+IphoneObservableImpl -> EmailAlertObserverImpl : update()
+EmailAlertObserverImpl --> IphoneObservableImpl : notification sent
+
+IphoneObservableImpl -> MobileAlertObserverImpl : update()
+MobileAlertObserverImpl --> IphoneObservableImpl : notification sent
+
+@enduml

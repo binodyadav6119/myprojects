@@ -1,0 +1,54 @@
+@startuml
+
+interface Observer {
+    +update()
+}
+
+class EmailAlertObserverImpl {
+    -emailId : String
+    -observable : StocksObservable
+    +update()
+}
+
+class MobileAlertObserverImpl {
+    -userName : String
+    -observable : StocksObservable
+    +update()
+}
+
+interface StocksObservable {
+    +add(Observer observer)
+    +remove(Observer observer)
+    +notifySubscribers()
+    +setStockCount(int newStockAdded)
+    +getStockCount()
+}
+
+class IphoneObservableImpl {
+    -observerList : List<Observer>
+    -stockCount : int
+    +add(Observer observer)
+    +remove(Observer observer)
+    +notifySubscribers()
+    +setStockCount(int newStockAdded)
+    +getStockCount()
+}
+
+class Main {
+    +main(String[] args)
+}
+
+Observer <|.. EmailAlertObserverImpl
+Observer <|.. MobileAlertObserverImpl
+
+StocksObservable <|.. IphoneObservableImpl
+
+IphoneObservableImpl --> Observer : notifies
+EmailAlertObserverImpl --> StocksObservable
+MobileAlertObserverImpl --> StocksObservable
+
+Main --> IphoneObservableImpl
+Main --> EmailAlertObserverImpl
+Main --> MobileAlertObserverImpl
+
+@enduml
